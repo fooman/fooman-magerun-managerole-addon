@@ -1,0 +1,7 @@
+autoloaders:
+  Fooman: %module%/src
+
+commands:
+  customCommands:
+    - Fooman\AddAdminRoleCommand
+    - Fooman\AddRoleResourceCommand
