@@ -63,6 +63,7 @@ class AddRoleResourceCommand extends AbstractMagentoCommand
             }
 
             $output->writeln('Updated resources for ' . $input->getArgument('name'));
+            $output->writeln('New set of allowed rules: '. implode(',',array_unique($newPerms)));
 
         }
     }
