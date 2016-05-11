@@ -54,7 +54,7 @@ class AddRoleResourceCommand extends AbstractMagentoCommand
 
                     \Mage::getModel('admin/rules')
                         ->setRoleId($role->getId())
-                        ->setResources($newPerms)
+                        ->setResources(array_unique($newPerms))
                         ->saveRel();
 
                 } catch (\Exception $e) {
