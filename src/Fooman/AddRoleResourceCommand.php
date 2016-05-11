@@ -39,7 +39,7 @@ class AddRoleResourceCommand extends AbstractMagentoCommand
                         ->getResourcesPermissionsArray();
 
                     foreach ($existingPerms as $perm => $value) {
-                        //Keep the existing permissons
+                        //Keep the existing permissions
                         if ($value == \Mage_Admin_Model_Rules::RULE_PERMISSION_ALLOWED) {
                             $newPerms[] = $perm;
                         }
@@ -60,10 +60,13 @@ class AddRoleResourceCommand extends AbstractMagentoCommand
                 } catch (\Exception $e) {
                     $output->writeln('Error updating resources ' . $e->getMessage());
                 }
+
+                $output->writeln('Updated resources for ' . $name);
+                $output->writeln('New set of allowed rules: ' . implode(',', array_unique($newPerms)));
+            } else {
+                throw new \Exception('Unable to find role: ' . $name);
             }
 
-            $output->writeln('Updated resources for ' . $input->getArgument('name'));
-            $output->writeln('New set of allowed rules: '. implode(',',array_unique($newPerms)));
 
         }
     }
