@@ -46,10 +46,7 @@ class AddRoleResourceCommand extends AbstractMagentoCommand
                     }
 
                     foreach ($permsToAdd as $newPerm) {
-                        //Make sure we can only add permissions that exist
-                        if (isset($existingPerms[$newPerm])) {
-                            $newPerms[] = $newPerm;
-                        }
+                        $newPerms[] = $newPerm;
                     }
 
                     \Mage::getModel('admin/rules')
